@@ -8,15 +8,10 @@ public class Weapon : MonoBehaviour
     public Transform firePoint;
     public float fireForce = 20f;
     
-    // Start is called before the first frame update
-    void Start()
+    
+    public void Fire()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        bullet.GetComponent<Rigidbody2D>().AddForce(firePoint.up * fireForce, ForceMode2D.Impulse);
+     }
 }
