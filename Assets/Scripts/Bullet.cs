@@ -5,7 +5,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public int damage;
-    private void OnCollisonEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         // Bullet damage
         EnemyHealth enemyHealth = collision.gameObject.GetComponent<EnemyHealth>();
@@ -16,5 +16,11 @@ public class Bullet : MonoBehaviour
 
         // Destroyed the bullet
         Destroy(gameObject);
+
     }
+
+    //private void Update()
+    //{
+    //    Debug.Log("test");
+    //}
 }
