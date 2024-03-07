@@ -4,14 +4,17 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    private void OnCollisionEnter2D(Collision2D collision)
+    public int damage;
+    private void OnCollisonEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Enemy")
+        // Bullet damage
+        if (collision.gameObject.GetComponent<Health>() != null)
         {
-           Destroy(collision.gameObject);
+            collision.gameObject.GetComponent<Health>().TakeDamage(damage);
+            Debug.Log("Taken Damage");
         }
 
+        // Destroyed the bullet
         Destroy(gameObject);
-        
     }
- }
+}

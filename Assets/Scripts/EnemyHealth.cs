@@ -1,10 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class Health : MonoBehaviour
+public class EnemyHealth : MonoBehaviour
 {
     public int maxHealth;
     public float currentHealth;
@@ -23,17 +21,9 @@ public class Health : MonoBehaviour
             Die();
         }
     }
+
     void Die()
     {
-        SceneManager.LoadScene("Game");
+        Destroy(this.gameObject);
     }
-    public void Heal(int healAmount)
-    {
-        currentHealth += healAmount;
-        if (currentHealth > maxHealth)
-        {
-            currentHealth = maxHealth;
-        }
-    }
-
 }
