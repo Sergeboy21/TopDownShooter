@@ -8,10 +8,10 @@ public class Bullet : MonoBehaviour
     private void OnCollisonEnter2D(Collision2D collision)
     {
         // Bullet damage
-        if (collision.gameObject.GetComponent<Health>() != null)
+        EnemyHealth enemyHealth = collision.gameObject.GetComponent<EnemyHealth>();
+        if (enemyHealth != null)
         {
-            collision.gameObject.GetComponent<Health>().TakeDamage(damage);
-            Debug.Log("Taken Damage");
+            enemyHealth.TakeDamage(damage);
         }
 
         // Destroyed the bullet
