@@ -25,7 +25,7 @@ public class Health : MonoBehaviour
     }
     void Die()
     {
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene("MainMenu");
     }
     public void Heal(int healAmount)
     {
