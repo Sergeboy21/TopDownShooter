@@ -9,15 +9,21 @@ public class AIChase : MonoBehaviour
     public float speed;
     public float distanceBetween;
 
-
+    [SerializeField]
     private float distance;
+
+
+    private void Start()
+    {
+        player = GameObject.Find("Player");
+    }
 
     // Update is called once per frame
     void Update()
     {   //movement van de enemy naar player
         distance = Vector2.Distance(transform.position, player.transform.position);
         Vector2 direction = player.transform.position - transform.position;
-        direction.Normalize();
+        //direction.Normalize();
         float angle = Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;
 
         // distance van de detectie zone van de enemy

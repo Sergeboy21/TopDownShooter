@@ -5,10 +5,22 @@ using UnityEngine;
 
 public class SpawnPoint : MonoBehaviour
 {
-    public Transform spawnPosition;
+    public GameObject enemies;
+    public GameObject brute;
 
-    private void SpawnObjects(GameObject objectToSpawn)
+    [SerializeField]
+    public float maximumSpawnTime;
+    [SerializeField]
+    public float minimumSpawnTime;
+
+    private void Awake()
     {
-       Instantiate(objectToSpawn, spawnPosition.position, spawnPosition.rotation);
+        SpawnEnemy();
     }
+    void SpawnEnemy()
+    {      
+            Instantiate(enemies, transform.position, Quaternion.identity);
+            Instantiate(brute, transform.position, Quaternion.identity);
+    }
+   
 }

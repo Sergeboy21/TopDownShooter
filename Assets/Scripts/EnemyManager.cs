@@ -13,7 +13,7 @@ public class EnemyManager : MonoBehaviour
     public void EnemyDefeated()
     {
         totalEnemies--;
-        if (totalEnemies <= 0)
+        if (totalEnemies == 0)
         {
             LoadNextScene();
         }
